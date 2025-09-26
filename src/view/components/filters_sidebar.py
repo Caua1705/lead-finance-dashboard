@@ -2,7 +2,7 @@ import streamlit as st
 
 
 def exibir_filtros_visao_geral(cursos, intervalo_datas, cidades):
-    st.sidebar.markdown("## 📊 Filtros - Visão Geral")
+    st.sidebar.markdown("## Filtros - Visão Geral")
     
     curso = st.sidebar.selectbox("🎓 Curso", ["Todos"] + cursos)
     
@@ -26,7 +26,7 @@ def exibir_filtros_visao_geral(cursos, intervalo_datas, cidades):
 
 
 def exibir_filtros_mensagens(cursos, intervalo_datas, etapas_atendimento):
-    st.sidebar.markdown("## 💬 Filtros - Mensagens")
+    st.sidebar.markdown("## Filtros - Mensagens")
     
     curso = st.sidebar.selectbox("🎓 Curso", cursos)
     
@@ -38,7 +38,7 @@ def exibir_filtros_mensagens(cursos, intervalo_datas, etapas_atendimento):
         format="DD/MM/YYYY"
     )
     
-    etapa_atendimento = st.sidebar.selectbox("📍 Etapa de Atendimento", etapas_atendimento)
+    etapa_atendimento = st.sidebar.selectbox("🎯 Etapa de Atendimento", etapas_atendimento)
 
     filtros = {
         "curso": curso,
@@ -50,7 +50,7 @@ def exibir_filtros_mensagens(cursos, intervalo_datas, etapas_atendimento):
 
 
 def exibir_filtros_financeiro(cursos, intervalo_datas):
-    st.sidebar.markdown("## 💰 Filtros - Financeiro")
+    st.sidebar.markdown("## Filtros - Financeiro")
     curso = st.sidebar.selectbox("🎓 Curso", ["Todos"] + cursos)
     periodo = st.sidebar.date_input(
         "📅 Período", 
