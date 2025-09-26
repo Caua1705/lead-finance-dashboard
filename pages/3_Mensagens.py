@@ -16,7 +16,7 @@ from src.services.ia_history_service import HistoricoIAService
 from src.utils.date_utils import formatar_periodo
 
 from src.view.components.filters_sidebar import exibir_filtros_mensagens
-
+from src.utils.formatting import truncar_texto
 
 st.set_page_config(page_title="Gestão de Leads", page_icon="👥", layout="wide")
 
@@ -90,8 +90,7 @@ def main():
 
 
         st.title(f"💬 Mensagens por Cliente - Etapa: {etapa_atendimento}")
-
-        st.divider()
+        st.divider()        
 
         # Layout em 2 colunas para organizar melhor
         cols = st.columns(2)
@@ -120,7 +119,7 @@ def main():
                     st.caption(f"📚 {curso} | 📍 {cidade} | 👤 {perfil_cliente} | 📌 {tipo_inscricao} | 💳 {forma_pagamento}")
 
                 # Última mensagem
-                st.write(f"💬 Última mensagem: *{ultima_mensagem[:80]}...*")
+                st.write(f"💬 Última mensagem: *{truncar_texto(ultima_mensagem)}*")
 
                 # Data formatada
                 from datetime import datetime
@@ -144,9 +143,9 @@ def main():
 
                         if autor == "human":
                             with st.chat_message("user", avatar="src/view/assets/LOGO-HUMANO.png"):
-                                st.markdown(f"{conteudo[:80]}...")
+                                st.markdown(f"{truncar_texto(conteudo)}")
                         else:
                             with st.chat_message("assistant", avatar="src/view/assets/LOGO-2K.png"):
-                                st.markdown(f"{conteudo[:80]}...")
+                                st.markdown(f"{truncar_texto(conteudo)}")
 if __name__ == "__main__":
     main()

@@ -9,3 +9,8 @@ def formatar_unidade(valor):
         return f"{valor:02d}"
     else:
         return f"{valor:,}".replace(",", ".")
+    
+def truncar_texto(texto, limite):
+    if len(texto) > limite:
+        return texto[:limite] + "..."
+    return texto
