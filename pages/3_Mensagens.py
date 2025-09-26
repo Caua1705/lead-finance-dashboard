@@ -119,7 +119,7 @@ def main():
                     st.caption(f"📚 {curso} | 📍 {cidade} | 👤 {perfil_cliente} | 📌 {tipo_inscricao} | 💳 {forma_pagamento}")
 
                 # Última mensagem
-                st.write(f"💬 Última mensagem: *{truncar_texto(ultima_mensagem)}*")
+                st.write(f"💬 Última mensagem: *{truncar_texto(ultima_mensagem, limite=80)}*")
 
                 # Data formatada
                 from datetime import datetime
@@ -143,9 +143,9 @@ def main():
 
                         if autor == "human":
                             with st.chat_message("user", avatar="src/view/assets/LOGO-HUMANO.png"):
-                                st.markdown(f"{truncar_texto(conteudo)}")
+                                st.markdown(f"{truncar_texto(conteudo, limite=80)}")
                         else:
                             with st.chat_message("assistant", avatar="src/view/assets/LOGO-2K.png"):
-                                st.markdown(f"{truncar_texto(conteudo)}")
+                                st.markdown(f"{truncar_texto(conteudo, limite=80)}")
 if __name__ == "__main__":
     main()
